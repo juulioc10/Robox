@@ -24,6 +24,20 @@ public class Robox extends Robot
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
 			ahead(100);
+			turnLeft(90);
+			turnGunRight(360);
+			back(100);
+			turnRight(90);
+			turnGunRight(360);
+			ahead(100);
+			turnLeft(90);
+			turnGunRight(360);
+			back(100);
+			turnRight(90);
+			turnGunRight(360);
+			back(100);
+			ahead(100);
+			turnLeft(90);
 			turnGunRight(360);
 			
 		}
@@ -45,7 +59,7 @@ public class Robox extends Robot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-	//	back(0);
+	back(50);
 	}
 	
 	/**
