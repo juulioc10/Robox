@@ -22,31 +22,13 @@ public class Robox extends Robot
 
 		// Robot main loop
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnLeft(90);
-			turnGunRight(360);
-			back(100);
-			turnRight(90);
-			turnGunRight(360);
-			ahead(100);
-			turnLeft(90);
-			turnGunRight(360);
-			back(100);
-			turnRight(90);
-			turnGunRight(360);
-			back(100);
-			ahead(100);
-			turnLeft(90);
-			turnGunRight(360);
+			moveRandom();
 			
 		}
 	}
 	//tank robô inimigo detectedo
 	public void onScannedRobot(ScannedRobotEvent e) {
-		String robotank = e.getName();
 		double distancia = e.getDistance();
-		System.out.println(robotank + " distância " + distancia);
 	    if (distancia < 135) {
 			fire(3);
 		}else {
@@ -58,8 +40,7 @@ public class Robox extends Robot
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
-		// Replace the next line with any behavior you would like
-	back(50);
+		evadeBullet();
 	}
 	
 	/**
@@ -67,7 +48,21 @@ public class Robox extends Robot
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-	    back(50);
-		turnRight(90);
+	   evadeWall()
 	}	
+
+	private void moveRandom() {
+		ahead(Math.random() * 200);
+		turnRight(Math.random() * 360);
+	}
+
+	private void evadeBullet() {
+		turnLeft(90);
+		ahead(100);
+	}
+
+	private void evadeWall() {
+		back(50);
+		turnRight(90);
+	}
 }
